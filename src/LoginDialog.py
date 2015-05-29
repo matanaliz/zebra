@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
-from PyQt5.QtWidgets import (QDialog)
+from PyQt5.QtWidgets import (QDialog, QLineEdit)
 from UI.ui_logindialog import Ui_LoginDialog
 
 from user import User
@@ -13,7 +13,8 @@ class LoginDialog(QDialog):
 
         self.ui = Ui_LoginDialog()
         self.ui.setupUi(self)
-
+        self.ui.pass_edit.setEchoMode(QLineEdit.Password)
+        
         # Connect up the buttons.
         self.ui.buttonBox.accepted.connect(self.on_login)
         self.ui.buttonBox.rejected.connect(self.on_exit)
