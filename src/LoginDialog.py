@@ -1,6 +1,11 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+
 from PyQt5.QtWidgets import (QDialog)
 from UI.ui_logindialog import Ui_LoginDialog
 
+from user import User
+from vk_api import VkApi
 
 class LoginDialog(QDialog):
     def __init__(self):
@@ -15,7 +20,14 @@ class LoginDialog(QDialog):
 
     def on_login(self):
         # verify login and password
-        pass
+        login = self.ui.login_edit.text()
+        password = self.ui.pass_edit.text()
+
+        if len(login) == 0 or len(password) == 0:
+            return
+        user = User(login, password)
+        api = VkApi()
+        api.login(user)
 
     def on_exit(self):
         self.close()

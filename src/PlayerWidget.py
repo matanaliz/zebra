@@ -8,6 +8,8 @@ import gi
 gi.require_version('Gst', '1.0')
 from gi.repository import (Gst, GObject)
 
+from vk_api import VkApi
+from vk_audio import VkAudio
 
 class PlayerWidget(QWidget):
     def __init__(self):
@@ -15,6 +17,12 @@ class PlayerWidget(QWidget):
 
         self.audio_stream_url = 'https://www.dropbox.com/s/ye1s33jaty6d9rr/fe9a35acd5e08f.mp3?dl=1'
         self.player = None
+
+        api = VkApi()
+        if (api.isLogedIn()):
+            json = api.audio_get(api.current_user_id, 3)
+            audios = VkAudio.parse(json)
+            self.audio_stream_url = audios[0].url
 
         self.init_gst()
         self.init_ui()
