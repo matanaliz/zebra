@@ -22,7 +22,7 @@
   <property name="modal">
    <bool>true</bool>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -37,9 +37,9 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QLabel" name="label_2">
+         <widget class="QLabel" name="login_lbl">
           <property name="text">
-           <string>Pass</string>
+           <string>Login</string>
           </property>
          </widget>
         </item>
@@ -57,16 +57,16 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLineEdit" name="pass_edit"/>
+         <widget class="QLineEdit" name="login_edit"/>
         </item>
        </layout>
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QLabel" name="login_lbl">
+         <widget class="QLabel" name="pass_lbl">
           <property name="text">
-           <string>Login</string>
+           <string>Pass</string>
           </property>
          </widget>
         </item>
@@ -84,7 +84,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLineEdit" name="login_edit"/>
+         <widget class="QLineEdit" name="pass_edit"/>
         </item>
        </layout>
       </item>
