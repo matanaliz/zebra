@@ -4,8 +4,8 @@
 import sys
 
 from PyQt5.QtWidgets import (QApplication, QWidget, QVBoxLayout)
-from PlayerWidget import PlayerWidget
-from LoginDialog import LoginDialog
+from player_widget import PlayerWidget
+from login_dialog import LoginDialog
 
 
 class ZebraApplication(QWidget):

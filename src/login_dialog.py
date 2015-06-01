@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 from PyQt5.QtWidgets import (QDialog, QLineEdit)
-from UI.ui_logindialog import Ui_LoginDialog
+from UI.ui_login_dialog import Ui_LoginDialog
 
 from user import User
 from vk_api import VkApi

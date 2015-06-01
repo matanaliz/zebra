@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>587</width>
-    <height>219</height>
+    <width>441</width>
+    <height>104</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,7 +16,7 @@
   <property name="styleSheet">
    <string notr="true">&quot;</string>
   </property>
-  <widget class="QSlider" name="horizontalSlider">
+  <widget class="QSlider" name="playback_slider">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -29,20 +29,20 @@
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="song_name_lbl">
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>90</x>
      <y>10</y>
-     <width>241</width>
+     <width>261</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>Artist - SOng Name</string>
+    <string>song_name_here</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="play_button">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -55,17 +55,30 @@
     <string>Play</string>
    </property>
   </widget>
-  <widget class="QDial" name="dial">
+  <widget class="QDial" name="volume_knob">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>360</x>
      <y>40</y>
      <width>41</width>
-     <height>31</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QToolTip { color: #ffffff; background-color: #2a82da; border: 1px solid white; }</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="song_time_lbl">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>10</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>00:00/00:00</string>
    </property>
   </widget>
  </widget>

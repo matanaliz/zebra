@@ -67,13 +67,3 @@ class Ui_LoginDialog(object):
         self.label_2.setText(_translate("LoginDialog", "Pass"))
         self.login_lbl.setText(_translate("LoginDialog", "Login"))
 
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    LoginDialog = QtWidgets.QDialog()
-    ui = Ui_LoginDialog()
-    ui.setupUi(LoginDialog)
-    LoginDialog.show()
-    sys.exit(app.exec_())
-
