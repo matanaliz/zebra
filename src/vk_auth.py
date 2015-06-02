@@ -8,6 +8,7 @@ import urllib.parse
 from vk_form_parser import VkFormParser
 from urllib.parse import urlparse
 
+
 def auth(user, client_id, scope):
     def get_auth_page(client_id, scope):
         return "http://oauth.vk.com/oauth/authorize?" + \

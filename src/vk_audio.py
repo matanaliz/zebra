@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
+
 class VkAudio:
     def __init__(self):
         self.lyrics_id = -1
@@ -20,7 +21,8 @@ class VkAudio:
         self.title = parsed_json["title"]
         self.artist = parsed_json["artist"]
         self.duration = parsed_json["duration"]
-        self.genre = parsed_json["genre"]
+        if ("genre_id" in parsed_json):
+            self.genre = parsed_json["genre_id"]
         self.url = parsed_json["url"]
 
     @staticmethod

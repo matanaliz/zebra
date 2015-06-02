@@ -7,6 +7,7 @@ from UI.ui_login_dialog import Ui_LoginDialog
 from user import User
 from vk_api import VkApi
 
+
 class LoginDialog(QDialog):
     def __init__(self):
         super().__init__()

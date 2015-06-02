@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-from PyQt5.QtWidgets import ( QWidget, QSlider, QPushButton, QHBoxLayout)
-from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import (QWidget)
+from UI.ui_player_widget import Ui_PlayerWidget
 
 import gi
 gi.require_version('Gst', '1.0')
@@ -11,43 +11,40 @@ from gi.repository import (Gst, GObject)
 from vk_api import VkApi
 from vk_audio import VkAudio
 
-class PlayerWidget(QWidget):
-    def __init__(self):
-        super().__init__()
 
-        self.audio_stream_url = 'https://www.dropbox.com/s/ye1s33jaty6d9rr/fe9a35acd5e08f.mp3?dl=1'
+class PlayerWidget(QWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+
+        self.ui = Ui_PlayerWidget()
+        self.ui.setupUi(self)
+
+        self.ui.play_button.setCheckable(True)
+        self.ui.play_button.clicked[bool].connect(self.play_clicked)
+
+        self.song = None
+        # self.audio_stream_url = 'https://www.dropbox.com/s/ye1s33jaty6d9rr/fe9a35acd5e08f.mp3?dl=1'
         self.player = None
 
         api = VkApi()
-        if (api.isLogedIn()):
-            json = api.audio_get(api.current_user_id, 3)
+        if api.isLogedIn():
+            json = api.audio_get(api.current_user_id, 1)
             audios = VkAudio.parse(json)
-            self.audio_stream_url = audios[0].url
+            self.song = audios[0]
+            self.ui.song_name_lbl.setText(self.song.title)
 
         self.init_gst()
-        self.init_ui()
-
-    def init_ui(self):
-
-        play_btn = QPushButton("Play")
-        play_btn.setCheckable(True)
-        play_btn.clicked[bool].connect(self.play_clicked)
-
-        progress_slider = QSlider(Qt.Horizontal, self)
-        progress_slider.sliderMoved[int].connect(self.slider_drag)
-
-        hbox = QHBoxLayout()
-        hbox.addWidget(play_btn)
-        hbox.addWidget(progress_slider)
-        self.setLayout(hbox)
-        self.show()
 
     def init_gst(self):
         GObject.threads_init()
         Gst.init(None)
 
         self.player = Gst.ElementFactory.make("playbin", "player")
-        self.player.set_property('uri', self.audio_stream_url)
+        if self.song:
+            self.player.set_property('uri', self.song.url)
+        else:
+            self.player.set_property('uri', 'https://www.dropbox.com/s/ye1s33jaty6d9rr/fe9a35acd5e08f.mp3?dl=1')
+
         self.player.set_state(Gst.State.PAUSED)
 
     def play_clicked(self, pressed):
@@ -55,6 +52,12 @@ class PlayerWidget(QWidget):
             self.player.set_state(Gst.State.PLAYING)
         else:
             self.player.set_state(Gst.State.PAUSED)
+
+    def prepare_playback(self, song):
+        self.song = song
+        self.ui.song_name_lbl.setText(self.song.title)
+        self.init_gst()
+        print(song.url)
 
     def slider_drag(self, value):
         pass

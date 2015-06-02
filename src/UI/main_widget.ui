@@ -1,85 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>main_widget</class>
- <widget class="QWidget" name="main_widget">
+ <class>MainWidget</class>
+ <widget class="QWidget" name="MainWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>962</width>
+    <width>1174</width>
     <height>781</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Zebra</string>
   </property>
-  <widget class="QWidget" name="player_widget_content" native="true">
+  <widget class="PlayerWidget" name="player_widget_content" native="true">
    <property name="geometry">
     <rect>
      <x>230</x>
      <y>20</y>
      <width>441</width>
-     <height>104</height>
+     <height>101</height>
     </rect>
    </property>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>130</y>
-     <width>441</width>
-     <height>631</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="music_layout">
-    <item>
-     <widget class="QScrollArea" name="music_scroll_area">
-      <property name="widgetResizable">
-       <bool>true</bool>
-      </property>
-      <widget class="QWidget" name="music_scroll_area_widget_contents">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>435</width>
-         <height>625</height>
-        </rect>
-       </property>
-      </widget>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>130</y>
-     <width>211</width>
-     <height>631</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="friends_layout">
-    <item>
-     <widget class="QScrollArea" name="friends_scroll_area">
-      <property name="widgetResizable">
-       <bool>true</bool>
-      </property>
-      <widget class="QWidget" name="friends_scroll_area_widget_contents">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>205</width>
-         <height>625</height>
-        </rect>
-       </property>
-      </widget>
-     </widget>
-    </item>
-   </layout>
   </widget>
   <widget class="QWidget" name="current_user_widget_content" native="true">
    <property name="geometry">
@@ -91,7 +33,59 @@
     </rect>
    </property>
   </widget>
+  <widget class="ScrollAreaWidget" name="songs_widget_content" native="true">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>130</y>
+     <width>440</width>
+     <height>641</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>440</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>440</width>
+     <height>16777215</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QWidget" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>129</y>
+     <width>211</width>
+     <height>641</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PlayerWidget</class>
+   <extends>QWidget</extends>
+   <header>player_widget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ScrollAreaWidget</class>
+   <extends>QWidget</extends>
+   <header>scroll_area_widget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

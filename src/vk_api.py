@@ -6,12 +6,15 @@ import json
 import urllib.parse
 import urllib.request
 
+
 class Singleton(type):
     instance = None
+
     def __call__(cls, *args, **kw):
         if not cls.instance:
-             cls.instance = super(Singleton, cls).__call__(*args, **kw)
+            cls.instance = super(Singleton, cls).__call__(*args, **kw)
         return cls.instance
+
 
 class VkApi(metaclass=Singleton):
     def __init__(self):
