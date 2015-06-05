@@ -29,7 +29,7 @@
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QLabel" name="song_name_lbl">
+  <widget class="QLabel" name="track_name_lbl">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -39,7 +39,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>song_name_here</string>
+    <string>track_name_here</string>
    </property>
   </widget>
   <widget class="QPushButton" name="play_button">
@@ -68,7 +68,7 @@
     <string notr="true">QToolTip { color: #ffffff; background-color: #2a82da; border: 1px solid white; }</string>
    </property>
   </widget>
-  <widget class="QLabel" name="song_time_lbl">
+  <widget class="QLabel" name="track_time_lbl">
    <property name="geometry">
     <rect>
      <x>350</x>

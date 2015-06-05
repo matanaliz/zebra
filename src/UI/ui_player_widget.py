@@ -17,9 +17,9 @@ class Ui_PlayerWidget(object):
         self.playback_slider.setGeometry(QtCore.QRect(90, 51, 261, 20))
         self.playback_slider.setOrientation(QtCore.Qt.Horizontal)
         self.playback_slider.setObjectName("playback_slider")
-        self.song_name_lbl = QtWidgets.QLabel(PlayerWidget)
-        self.song_name_lbl.setGeometry(QtCore.QRect(90, 10, 261, 21))
-        self.song_name_lbl.setObjectName("song_name_lbl")
+        self.track_name_lbl = QtWidgets.QLabel(PlayerWidget)
+        self.track_name_lbl.setGeometry(QtCore.QRect(90, 10, 261, 21))
+        self.track_name_lbl.setObjectName("track_name_lbl")
         self.play_button = QtWidgets.QPushButton(PlayerWidget)
         self.play_button.setGeometry(QtCore.QRect(20, 50, 61, 23))
         self.play_button.setObjectName("play_button")
@@ -27,9 +27,9 @@ class Ui_PlayerWidget(object):
         self.volume_knob.setGeometry(QtCore.QRect(360, 40, 41, 41))
         self.volume_knob.setStyleSheet("QToolTip { color: #ffffff; background-color: #2a82da; border: 1px solid white; }")
         self.volume_knob.setObjectName("volume_knob")
-        self.song_time_lbl = QtWidgets.QLabel(PlayerWidget)
-        self.song_time_lbl.setGeometry(QtCore.QRect(350, 10, 71, 21))
-        self.song_time_lbl.setObjectName("song_time_lbl")
+        self.track_time_lbl = QtWidgets.QLabel(PlayerWidget)
+        self.track_time_lbl.setGeometry(QtCore.QRect(350, 10, 71, 21))
+        self.track_time_lbl.setObjectName("track_time_lbl")
 
         self.retranslateUi(PlayerWidget)
         QtCore.QMetaObject.connectSlotsByName(PlayerWidget)
@@ -37,7 +37,7 @@ class Ui_PlayerWidget(object):
     def retranslateUi(self, PlayerWidget):
         _translate = QtCore.QCoreApplication.translate
         PlayerWidget.setWindowTitle(_translate("PlayerWidget", "Form"))
-        self.song_name_lbl.setText(_translate("PlayerWidget", "song_name_here"))
+        self.track_name_lbl.setText(_translate("PlayerWidget", "track_name_here"))
         self.play_button.setText(_translate("PlayerWidget", "Play"))
-        self.song_time_lbl.setText(_translate("PlayerWidget", "00:00/00:00"))
+        self.track_time_lbl.setText(_translate("PlayerWidget", "00:00/00:00"))
 

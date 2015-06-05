@@ -20,19 +20,20 @@ class PlayerWidget(QWidget):
         self.ui.setupUi(self)
 
         self.ui.play_button.setCheckable(True)
-        self.ui.play_button.clicked[bool].connect(self.play_clicked)
+        self.ui.play_button.clicked[bool].connect(self.play_toggle)
+        self.ui.volume_knob.setValue(100)
+        self.ui.volume_knob.valueChanged.connect(self.volume_update)
 
-        self.song = None
-        # self.audio_stream_url = 'https://www.dropbox.com/s/ye1s33jaty6d9rr/fe9a35acd5e08f.mp3?dl=1'
+        self.track = None
         self.player = None
 
         api = VkApi()
         if api.isLogedIn():
             json = api.audio_get(api.current_user_id, 1)
-            audios = VkAudio.parse(json)
-            self.song = audios[0]
-            self.ui.song_name_lbl.setText(self.song.title)
+            track_list = VkAudio.parse(json)
+            self.track = track_list[0]
 
+        self.update_ui()
         self.init_gst()
 
     def init_gst(self):
@@ -40,24 +41,30 @@ class PlayerWidget(QWidget):
         Gst.init(None)
 
         self.player = Gst.ElementFactory.make("playbin", "player")
-        if self.song:
-            self.player.set_property('uri', self.song.url)
+        if self.track:
+            self.player.set_property('uri', self.track.url)
         else:
             self.player.set_property('uri', 'https://www.dropbox.com/s/ye1s33jaty6d9rr/fe9a35acd5e08f.mp3?dl=1')
 
-        self.player.set_state(Gst.State.PAUSED)
-
-    def play_clicked(self, pressed):
+    def play_toggle(self, pressed):
         if pressed:
             self.player.set_state(Gst.State.PLAYING)
         else:
             self.player.set_state(Gst.State.PAUSED)
 
-    def prepare_playback(self, song):
-        self.song = song
-        self.ui.song_name_lbl.setText(self.song.title)
+    def prepare_playback(self, track):
+        self.track = track
+        self.player.set_state(Gst.State.NULL)
+        self.update_ui()
         self.init_gst()
-        print(song.url)
+
+    def volume_update(self, vol):
+        self.player.set_property('volume', vol / 100)
+
+    def update_ui(self):
+        if self.track:
+            self.ui.track_name_lbl.setText(self.track.artist + " - " + self.track.title)
+            self.ui.play_button.setChecked(False)
 
     def slider_drag(self, value):
         pass

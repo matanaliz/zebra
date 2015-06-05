@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SongWidget</class>
- <widget class="QWidget" name="SongWidget">
+ <class>TrackWidget</class>
+ <widget class="QWidget" name="TrackWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -48,21 +48,21 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="play_btn">
       <property name="text">
        <string>PushButton</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="song_name">
+     <widget class="QLabel" name="track_name">
       <property name="text">
        <string>no name</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="song_length">
+     <widget class="QLabel" name="track_length">
       <property name="minimumSize">
        <size>
         <width>0</width>

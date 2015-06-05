@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Zebra</string>
   </property>
-  <widget class="PlayerWidget" name="player_widget_content" native="true">
+  <widget class="PlayerWidget" name="player_widget" native="true">
    <property name="geometry">
     <rect>
      <x>230</x>
@@ -23,7 +23,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QWidget" name="current_user_widget_content" native="true">
+  <widget class="QWidget" name="current_user_widget" native="true">
    <property name="geometry">
     <rect>
      <x>9</x>
@@ -33,7 +33,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="ScrollAreaWidget" name="songs_widget_content" native="true">
+  <widget class="ScrollAreaWidget" name="track_list" native="true">
    <property name="geometry">
     <rect>
      <x>230</x>
@@ -61,7 +61,7 @@
     </size>
    </property>
   </widget>
-  <widget class="QWidget" name="widget" native="true">
+  <widget class="ScrollAreaWidget" name="users_list" native="true">
    <property name="geometry">
     <rect>
      <x>9</x>

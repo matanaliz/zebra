@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 
 from PyQt5.QtWidgets import (QWidget)
-from UI.ui_song_widget import Ui_SongWidget
+from UI.ui_track_widget import Ui_TrackWidget
 
 
-class SongWidget(QWidget):
+class TrackWidget(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        self.ui = Ui_SongWidget()
+        self.ui = Ui_TrackWidget()
         self.ui.setupUi(self)
